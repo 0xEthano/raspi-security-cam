@@ -1,0 +1,11 @@
+[DEFAULT]
+# Raspberry Pi OS Lite logs to the journal only (no /var/log/auth.log), so
+# Fail2Ban must read the systemd journal.
+backend = systemd
+banaction = nftables
+
+[sshd]
+enabled = true
+bantime = 1h
+findtime = 10m
+maxretry = 5

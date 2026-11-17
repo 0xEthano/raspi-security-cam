@@ -1,0 +1,7 @@
+# Template: setup-hardening.sh replaces @ADMIN_USER@ with the account you
+# created in Raspberry Pi Imager and validates the result with visudo.
+# New Raspberry Pi OS images ask for a password on sudo, so this rule is what
+# lets the forced-command control keys work non-interactively.
+# Only the camera-control wrapper is passwordless; do not grant arbitrary
+# systemctl access through this rule.
+@ADMIN_USER@ ALL=(root) NOPASSWD: /usr/local/sbin/security-cam-ctl on, /usr/local/sbin/security-cam-ctl off, /usr/local/sbin/security-cam-ctl restart, /usr/local/sbin/security-cam-ctl status
